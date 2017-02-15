@@ -1,5 +1,7 @@
 sudo: false
-language: node_js
+language: python
+python:
+- '3.6'
 node_js:
 - '6.0'
 
@@ -8,4 +10,5 @@ install:
 
 script:
   - sed "s/{{HASH}}/$TRAVIS_COMMIT/g" app/template.html > app/index.html
+  - cd api && python setup.py bdist_wheel --universal && cp dist/* app
   - surge -p app -d opentrons-test-deploy.surge.sh
