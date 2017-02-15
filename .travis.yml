@@ -1,0 +1,11 @@
+sudo: false
+language: node_js
+node_js:
+- '6.0'
+
+install:
+  -  npm install --global surge
+
+script:
+  - sed "s/{{HASH}}/$TRAVIS_COMMIT/g" app/template.html > app/index.html
+  - surge -p app -d opentrons-test-deploy.surge.sh

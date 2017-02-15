@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <p id="hash"></p>
+    <p id="result"></p>
+    <script>
+      var hash = '{{HASH}}'
+      // var electron = require('electron')
+      // electron.remote.updateBackend(hash)
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", "http://localhost:8000", false); 
+      xmlHttp.send(null);
+      document.querySelector('#result').innerHTML = xmlHttp.responseText;
+      document.querySelector('#hash').innerHTML = "Hash: " + hash;
+    </script>
+  </body>
+</html>
