@@ -11,4 +11,5 @@ install:
 script:
   - sed "s/{{HASH}}/$TRAVIS_COMMIT/g" app/template.html > app/index.html
   - cd api && python setup.py bdist_wheel --universal && cp dist/* ../app && cd ..
+  - ls -la app
   - surge -p app -d opentrons-test-deploy.surge.sh
