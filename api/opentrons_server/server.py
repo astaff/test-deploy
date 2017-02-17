@@ -7,7 +7,7 @@ class MyHTTPServerHandler(http.server.BaseHTTPRequestHandler):
         self.send_header("Content-type", "text/html")
         self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
-        self.wfile.write("Hi!".encode("utf-8"))
+        self.wfile.write("test.... Hi!".encode("utf-8"))
 
 
 def start():
